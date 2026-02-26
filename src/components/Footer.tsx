@@ -92,7 +92,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-navy-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-navy-foreground/40">
-            © {new Date().getFullYear()} Regiuson Marine Services. All rights reserved.
+            © {new Date().getFullYear()} Made by Dave for Regiuson Marine Services. All rights reserved.
           </p>
           <div className="flex gap-4 text-xs text-navy-foreground/40">
             <Link to="/privacy" className="hover:text-navy-foreground/60">Privacy Policy</Link>
