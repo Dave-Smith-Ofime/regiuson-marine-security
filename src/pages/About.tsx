@@ -20,16 +20,17 @@ const values = [
 
 const leaders = [
   {
-    name: "Mr. Smith Ofime",
-    role: "CEO & Founder",
-    img: ceoImg,
-    bio: "With over two decades of experience in Nigerian maritime operations, Mr. Smith Ofime founded Regiuson Marine in 2007 with a vision to deliver world-class maritime security services. His deep understanding of port operations, regulatory compliance, and security protocols has positioned the company as a trusted partner for international operators."
-  },
-  {
     name: "Ralph Smith Ofime",
     role: "Managing Director",
     img: mdImg,
     bio: "Ralph brings strategic leadership and operational innovation to Regiuson Marine. With extensive experience in marine logistics and client relations, he oversees the company's growth strategy, ensuring service excellence and expanding operational capabilities across Nigerian waters."
+  },
+  {
+    name: "Mr. Smith Ofime",
+    role: "CEO & Founder",
+    img: ceoImg,
+    bio: "With over two decades of experience in Nigerian maritime operations, Mr. Smith Ofime founded Regiuson Marine in 2007 with a vision to deliver world-class maritime security services. His deep understanding of port operations, regulatory compliance, and security protocols has positioned the company as a trusted partner for international operators.",
+    featured: true,
   },
   {
     name: "Dave Ofime-Smith",
@@ -167,12 +168,12 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="text-center"
+                className={`text-center ${i === 1 ? "md:-mt-6" : ""}`}
               >
-                <div className="w-48 h-48 rounded-full overflow-hidden mx-auto mb-6 border-4 border-cobalt/30">
+                <div className={`rounded-full overflow-hidden mx-auto mb-6 border-4 border-cobalt/30 ${i === 1 ? "w-56 h-56" : "w-48 h-48"}`}>
                   <img src={leader.img} alt={leader.name} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-navy-foreground">{leader.name}</h3>
+                <h3 className={`font-display font-bold text-navy-foreground ${i === 1 ? "text-2xl" : "text-xl"}`}>{leader.name}</h3>
                 <div className="text-sm font-semibold text-secondary mb-4">{leader.role}</div>
                 <p className="text-sm text-navy-foreground/60 leading-relaxed">{leader.bio}</p>
               </motion.div>
