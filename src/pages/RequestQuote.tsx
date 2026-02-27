@@ -23,9 +23,42 @@ const RequestQuote = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Quote request submitted! Our operations team will respond within 2 hours.");
+    setIsSubmitting(true);
+    try {
+      const subject = `Quote Request: ${formData.service} - ${formData.vesselName}`;
+      const body = `
+QUOTE REQUEST - REGIUSON MARINE
+
+Vessel Details:
+- Vessel Name: ${formData.vesselName}
+- Vessel Type: ${formData.vesselType}
+- ETA: ${formData.eta}
+- Port: ${formData.port}
+- Required Service: ${formData.service}
+- Urgency: ${formData.urgency}
+
+Contact Information:
+- Name: ${formData.contactName}
+- Company: ${formData.company || "N/A"}
+- Email: ${formData.contactEmail}
+- Phone: ${formData.contactPhone}
+
+Additional Notes:
+${formData.notes || "None"}
+      `.trim();
+
+      const mailtoLink = `mailto:regiusonmarineservices@yahoo.com,ofimesmith@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+      toast.success("Opening your email client to send the quote request.");
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass = "w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors";
@@ -115,8 +148,8 @@ const RequestQuote = () => {
               <textarea name="notes" value={formData.notes} onChange={handleChange} className={`${inputClass} min-h-[120px] resize-y`} maxLength={1000} />
             </div>
 
-            <Button type="submit" variant="hero" size="xl" className="w-full md:w-auto">
-              Submit Quote Request
+            <Button type="submit" variant="hero" size="xl" className="w-full md:w-auto" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Submit Quote Request"}
             </Button>
           </motion.form>
         </div>

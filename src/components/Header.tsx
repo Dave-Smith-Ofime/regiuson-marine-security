@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import logoImg from "@/assets/logo.jpg";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -68,10 +68,6 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="tel:+2348169703636" className="flex items-center gap-2 text-sm text-navy-foreground/80">
-            <Phone className="h-4 w-4 text-secondary" />
-            <span>24/7 Emergency</span>
-          </a>
           <Link to="/request-quote">
             <Button variant="hero" size="default">Request Quote</Button>
           </Link>
@@ -109,11 +105,7 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-3 border-t border-cobalt/20 mt-2 flex flex-col gap-2">
-                <a href="tel:+2348169703636" className="flex items-center gap-2 text-sm text-navy-foreground/80 px-4 py-2">
-                  <Phone className="h-4 w-4 text-secondary" />
-                  <span>+234 816 970 3636</span>
-                </a>
+              <div className="pt-3 border-t border-cobalt/20 mt-2">
                 <Link to="/request-quote">
                   <Button variant="hero" size="lg" className="w-full">Request Quote</Button>
                 </Link>
