@@ -4,6 +4,17 @@ import ceoImg from "@/assets/ceo-portrait.jpg";
 import mdImg from "@/assets/md-portrait.jpg";
 import opsImg from "@/assets/ops-director-portrait.jpg";
 import teamImg from "@/assets/security-team.jpg";
+import opsCrew from "@/assets/ops-crew.jpg";
+import opsK9Deck from "@/assets/ops-k9-deck.jpg";
+import opsK9Interior from "@/assets/ops-k9-interior.jpg";
+import opsK9Engine from "@/assets/ops-k9-engine.jpg";
+
+const pastJobs = [
+  { img: opsCrew, title: "Crew Coordination", desc: "On-vessel crew collaboration with international operators" },
+  { img: opsK9Deck, title: "K9 Deck Inspection", desc: "Certified K9 stowaway search operations on deck" },
+  { img: opsK9Interior, title: "K9 Interior Search", desc: "Police K9 unit conducting thorough interior vessel inspection" },
+  { img: opsK9Engine, title: "Engine Room Sweep", desc: "K9 search operations in engine compartments" },
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -147,6 +158,41 @@ const About = () => {
                 </div>
                 <h3 className="font-display font-semibold text-foreground mb-2">{v.title}</h3>
                 <p className="text-sm text-muted-foreground">{v.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Past Operations Gallery */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary mb-3 block">Our Work</span>
+            <h2 className="font-display text-3xl font-bold text-foreground">Operations in Action</h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">Real images from our maritime security and K9 inspection operations across Nigerian ports.</p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pastJobs.map((job, i) => (
+              <motion.div
+                key={job.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12, duration: 0.5 }}
+                className="group rounded-xl overflow-hidden bg-card border border-border"
+              >
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img
+                    src={job.img}
+                    alt={job.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-display font-semibold text-foreground">{job.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{job.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
