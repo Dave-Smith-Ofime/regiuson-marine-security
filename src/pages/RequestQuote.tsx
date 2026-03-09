@@ -20,7 +20,7 @@ const urgencyLevels = ["Routine", "Urgent (Within 48 hours)", "Emergency (Within
 const RequestQuote = () => {
   const [formData, setFormData] = useState({
     vesselName: "", vesselType: "", eta: "", port: "",
-    service: "", urgency: "", contactName: "", contactEmail: "",
+    customPort: "", service: "", urgency: "", contactName: "", contactEmail: "",
     contactPhone: "", company: "", notes: ""
   });
 
