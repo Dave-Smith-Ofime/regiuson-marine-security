@@ -91,15 +91,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-navy-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-navy-foreground/40">
-            © {new Date().getFullYear()} Regiuson Marine Services. All rights reserved.
-          </p>
-          <div className="flex gap-4 text-xs text-navy-foreground/40">
-            <Link to="/privacy" className="hover:text-navy-foreground/60">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-navy-foreground/60">Terms of Service</Link>
-            <Link to="/disclaimer" className="hover:text-navy-foreground/60">Disclaimer</Link>
+        <div className="mt-12 pt-8 border-t border-navy-foreground/10 flex flex-col items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+            <p className="text-xs text-navy-foreground/40">
+              © {new Date().getFullYear()} Regiuson Marine Services. All rights reserved.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-xs text-navy-foreground/40">
+              <Link to="/privacy" className="hover:text-navy-foreground/60">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-navy-foreground/60">Terms of Service</Link>
+              <Link to="/disclaimer" className="hover:text-navy-foreground/60">Disclaimer</Link>
+            </div>
           </div>
+          <p className="text-xs text-navy-foreground/30">Made by Dave Smith</p>
         </div>
       </div>
     </footer>
