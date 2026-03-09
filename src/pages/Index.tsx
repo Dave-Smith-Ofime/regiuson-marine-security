@@ -75,8 +75,8 @@ const Index = () => {
           >
             <motion.div custom={0} variants={fadeUp} className="flex items-center gap-2 mb-6">
               <div className="h-px w-12 bg-secondary" />
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
-                Established in 2007 · Over 17 Years of Maritime Excellence
+              <span className="text-[1.1rem] font-bold uppercase tracking-[0.2em] text-secondary">
+                Since 2007
               </span>
             </motion.div>
             <motion.h1
