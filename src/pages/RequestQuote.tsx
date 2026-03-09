@@ -4,7 +4,12 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const vesselTypes = ["Tanker", "Container Ship", "Bulk Carrier", "Offshore Support Vessel", "General Cargo", "Other"];
-const portOptions = ["Apapa, Lagos", "Tin Can Island, Lagos", "Port Harcourt", "Warri", "Calabar", "Offshore Terminal"];
+const portOptions = [
+  "Apapa, Lagos", "Tin Can Island, Lagos", "Port Harcourt", "Warri", "Calabar", "Offshore Terminal",
+  "Tema, Ghana", "Takoradi, Ghana", "Abidjan, Côte d'Ivoire", "Lomé, Togo", "Cotonou, Benin",
+  "Dakar, Senegal", "Conakry, Guinea", "Freetown, Sierra Leone", "Monrovia, Liberia",
+  "Douala, Cameroon", "Libreville, Gabon", "Pointe-Noire, Congo", "Other"
+];
 const serviceOptions = [
   "Armed Guard Escort", "K9 Stowaway Search", "Crew Change Assistance", "24/7 Onboard Security",
   "Protective Agent Services", "Parcel & Spare Parts Delivery", "Sludge Removal", "Oil Supply",
