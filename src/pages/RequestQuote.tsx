@@ -42,7 +42,7 @@ Vessel Details:
 - Vessel Name: ${formData.vesselName}
 - Vessel Type: ${formData.vesselType}
 - ETA: ${formData.eta}
-- Port: ${formData.port}
+- Port: ${formData.port === "Other" ? formData.customPort : formData.port}
 - Required Service: ${formData.service}
 - Urgency: ${formData.urgency}
 
