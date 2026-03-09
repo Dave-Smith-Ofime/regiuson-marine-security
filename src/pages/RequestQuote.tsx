@@ -110,6 +110,12 @@ ${formData.notes || "None"}
                   {portOptions.map(p => <option key={p} value={p}>{p}</option>)}
                 </select>
               </div>
+              {formData.port === "Other" && (
+                <div>
+                  <label className={labelClass}>Specify Port *</label>
+                  <input name="customPort" value={formData.customPort} onChange={handleChange} className={inputClass} required placeholder="Enter port name" maxLength={100} />
+                </div>
+              )}
               <div>
                 <label className={labelClass}>Required Service *</label>
                 <select name="service" value={formData.service} onChange={handleChange} className={inputClass} required>
