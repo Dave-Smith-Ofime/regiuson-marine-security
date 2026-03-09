@@ -4,7 +4,12 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const vesselTypes = ["Tanker", "Container Ship", "Bulk Carrier", "Offshore Support Vessel", "General Cargo", "Other"];
-const portOptions = ["Apapa, Lagos", "Tin Can Island, Lagos", "Port Harcourt", "Warri", "Calabar", "Offshore Terminal"];
+const portOptions = [
+  "Apapa, Lagos", "Tin Can Island, Lagos", "Port Harcourt", "Warri", "Calabar", "Offshore Terminal",
+  "Tema, Ghana", "Takoradi, Ghana", "Abidjan, Côte d'Ivoire", "Lomé, Togo", "Cotonou, Benin",
+  "Dakar, Senegal", "Conakry, Guinea", "Freetown, Sierra Leone", "Monrovia, Liberia",
+  "Douala, Cameroon", "Libreville, Gabon", "Pointe-Noire, Congo", "Other"
+];
 const serviceOptions = [
   "Armed Guard Escort", "K9 Stowaway Search", "Crew Change Assistance", "24/7 Onboard Security",
   "Protective Agent Services", "Parcel & Spare Parts Delivery", "Sludge Removal", "Oil Supply",
@@ -15,7 +20,7 @@ const urgencyLevels = ["Routine", "Urgent (Within 48 hours)", "Emergency (Within
 const RequestQuote = () => {
   const [formData, setFormData] = useState({
     vesselName: "", vesselType: "", eta: "", port: "",
-    service: "", urgency: "", contactName: "", contactEmail: "",
+    customPort: "", service: "", urgency: "", contactName: "", contactEmail: "",
     contactPhone: "", company: "", notes: ""
   });
 
@@ -37,7 +42,7 @@ Vessel Details:
 - Vessel Name: ${formData.vesselName}
 - Vessel Type: ${formData.vesselType}
 - ETA: ${formData.eta}
-- Port: ${formData.port}
+- Port: ${formData.port === "Other" ? formData.customPort : formData.port}
 - Required Service: ${formData.service}
 - Urgency: ${formData.urgency}
 
@@ -105,6 +110,12 @@ ${formData.notes || "None"}
                   {portOptions.map(p => <option key={p} value={p}>{p}</option>)}
                 </select>
               </div>
+              {formData.port === "Other" && (
+                <div>
+                  <label className={labelClass}>Specify Port *</label>
+                  <input name="customPort" value={formData.customPort} onChange={handleChange} className={inputClass} required placeholder="Enter port name" maxLength={100} />
+                </div>
+              )}
               <div>
                 <label className={labelClass}>Required Service *</label>
                 <select name="service" value={formData.service} onChange={handleChange} className={inputClass} required>

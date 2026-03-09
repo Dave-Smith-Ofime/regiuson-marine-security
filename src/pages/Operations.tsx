@@ -2,11 +2,32 @@ import { motion } from "framer-motion";
 import { MapPin, Ship, Shield, Clock, Users, Radio, Anchor, Award } from "lucide-react";
 
 const ports = [
-  "Lagos Ports (Apapa & Tin Can Island)",
-  "Port Harcourt",
-  "Warri",
-  "Calabar",
+  "Lagos Ports (Apapa & Tin Can Island), Nigeria",
+  "Port Harcourt, Nigeria",
+  "Warri, Nigeria",
+  "Calabar, Nigeria",
   "Offshore terminals within Nigerian territorial waters",
+  "Tema, Ghana",
+  "Takoradi, Ghana",
+  "Abidjan, Côte d'Ivoire",
+  "San Pedro, Côte d'Ivoire",
+  "Lomé, Togo",
+  "Cotonou, Benin",
+  "Dakar, Senegal",
+  "Conakry, Guinea",
+  "Freetown, Sierra Leone",
+  "Monrovia, Liberia",
+  "Douala, Cameroon",
+  "Kribi, Cameroon",
+  "Malabo, Equatorial Guinea",
+  "Bata, Equatorial Guinea",
+  "Libreville, Gabon",
+  "Port-Gentil, Gabon",
+  "Pointe-Noire, Republic of Congo",
+  "Nouakchott, Mauritania",
+  "Praia, Cape Verde",
+  "Banjul, The Gambia",
+  "Bissau, Guinea-Bissau",
 ];
 
 const strengths = [

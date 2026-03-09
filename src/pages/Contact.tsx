@@ -13,7 +13,22 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! We'll respond within 24 hours.");
+    const subject = `Contact: ${form.subject} - ${form.name}`;
+    const body = `
+CONTACT MESSAGE - REGIUSON MARINE
+
+From: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone || "N/A"}
+Subject: ${form.subject}
+
+Message:
+${form.message}
+    `.trim();
+
+    const mailtoLink = `mailto:regiusonmarineservices@yahoo.com,ofimesmith@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+    toast.success("Opening your email client to send the message.");
   };
 
   const inputClass = "w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors";
